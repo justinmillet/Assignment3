@@ -160,13 +160,18 @@ class LinkedList:
         """
         if start_index < 0 or start_index >= self.length():
             raise SLLException("Invalid start index")
-        if size < 1 or start_index + size > self.length():
+        if size < 0:
             raise SLLException("Invalid size")
-        new_list = LinkedList()
-        current_node = self._head.next
-        for i in range(start_index):
-            current_node = current_node.next
-        for i in range(size):
-            new_list.insert_back(current_node.value)
-            current_node = current_node.next
+        if start_index + size > self.length():
+            raise SLLException("Not enough nodes for the requested slice size")
+        node = self._head.next
+        count = 0  # creates the count
+        while count < start_index:  # starting node
+            node = node.next
+            count += 1
+        new_list = LinkedList()  # creates new list
+        while count < start_index + size:  # copies contents of original list to the new list
+            new_list.insert_back(node.value)
+            node = node.next
+            count += 1
         return new_list
