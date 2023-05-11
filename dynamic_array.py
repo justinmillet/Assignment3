@@ -1,8 +1,8 @@
-# Name:
-# OSU Email:
+# Name:Justin Millet
+# OSU Email: milletj@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
+# Assignment: 3
+# Due Date: 5/8/2023
 # Description:
 
 
